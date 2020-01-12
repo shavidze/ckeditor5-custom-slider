@@ -10,7 +10,6 @@ publish_new_version:
   script:
     - npm ci
     - npm run build
-    - npm run build-tools
-    - npm run build-package
+    - npm run add-package-json
     - npm config set //npm.adjara.me/:_authToken ${NPM_TOKEN}
     - npm run publish
