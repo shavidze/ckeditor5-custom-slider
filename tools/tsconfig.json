@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "target": "es6",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "lib": [
+      "es2018"
+    ],
+    "pretty": true,
+    "paths": {
+      "*": [
+        "../node_modules/*"
+      ]
+    }
+  }
+}

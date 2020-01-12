@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "scripts": {
+    "new-version": "lerna version --conventional-commits --force-publish --no-changelog --yes",
     "build": "webpack --mode production",
     "lint": "eslint --quiet '**/*.js'",
     "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'",
-    "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi"
+    "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi",
+    "build-tools": "tsc --build ./tools/tsconfig.json",
+    "build-package": "node ./tools/dist/npm-build.js",
+    "publish": "lerna publish from-git --yes --registry=https://npm.adjara.me --contents=build"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-ui": "^16.0.0",
@@ -42,6 +46,7 @@
     "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.39.1",
+    "lerna": "^3.16.4",
     "webpack-cli": "^3.3.6"
   }
 }

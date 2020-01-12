@@ -1,0 +1,15 @@
+image: node:10
+
+stages:
+  - publish
+
+publish_new_version:
+  stage: publish
+  only:
+    - tags
+  script:
+    - npm ci
+    - npm run build-tools
+    - npm run build-package
+    - npm config set //npm.adjara.me/:_authToken ${NPM_TOKEN}
+    - npm run publish
