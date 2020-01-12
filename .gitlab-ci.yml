@@ -9,6 +9,7 @@ publish_new_version:
     - tags
   script:
     - npm ci
+    - npm run build
     - npm run build-tools
     - npm run build-package
     - npm config set //npm.adjara.me/:_authToken ${NPM_TOKEN}
