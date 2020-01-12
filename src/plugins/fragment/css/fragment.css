@@ -1,0 +1,34 @@
+/**
+ * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ */
+
+.ck-content fragment {
+	/* See #12 */
+	overflow: hidden;
+	/* https://github.com/ckeditor/ckeditor5-block-quote/issues/15 */
+	padding-right: 1.5em;
+	padding-left: 1.5em;
+	padding-top: 2em;
+	margin-left: 0;
+	margin-right: 0;
+	font-style: italic;
+	display: flex;
+	float: left;
+	background-color: hsl(0, 0%, 80%);
+	position: relative;
+	/* border-left: solid 5px hsl(0, 0%, 80%); */
+}
+
+.ck-content fragment::after{
+	content: "ასევე იხილეთ";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 16px;
+}
+
+.ck-content[dir="rtl"] fragment {
+	border-left: 0;
+	/* border-right: solid 5px hsl(0, 0%, 80%); */
+}

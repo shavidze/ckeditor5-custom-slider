@@ -21,7 +21,7 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-import InsertFragment from "./plugins/fragment/fragment.plugin";
+import Fragment from './plugins/fragment/fragment';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -50,7 +50,7 @@ ClassicEditor.builtinPlugins = [
     PasteFromOffice,
     Table,
     TableToolbar,
-    InsertFragment
+    Fragment
 ];
 
 // Editor configuration.
@@ -76,9 +76,6 @@ ClassicEditor.defaultConfig = {
             'undo',
             'redo',
         ]
-    },
-    blockquote: {
-
     },
     image: {
         toolbar: [
