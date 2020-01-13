@@ -151,10 +151,21 @@ fragment a {
 	padding-left: 6px;
 	padding-bottom: 30px;
 }
+
+fragment p{
+	margin-left:0 !important;
+	}
+
 p {
+	margin-left: 10%;
 	font-family: "helvetica-roman";
 	font-size: 14px !important;
 	line-height: 27px;
 	font-weight: 55;
 	color: #000000;
 }
+
+.ck-content blockquote{
+	border-left: 0 !important;
+}
+
