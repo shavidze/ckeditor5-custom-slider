@@ -1,34 +1,160 @@
-/**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
- */
+/*!***/
+/* * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.*/
+/* * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license*/
+/* *!*/
 
-.ck-content fragment {
-	/* See #12 */
-	overflow: hidden;
-	/* https://github.com/ckeditor/ckeditor5-block-quote/issues/15 */
-	padding-right: 1.5em;
-	padding-left: 1.5em;
-	padding-top: 2em;
-	margin-left: 0;
-	margin-right: 0;
-	font-style: italic;
-	display: flex;
+/*.ck-content fragment {*/
+/*	!* See #12 *!*/
+/*	overflow: hidden;*/
+/*	!* https://github.com/ckeditor/ckeditor5-block-quote/issues/15 *!*/
+/*	padding-right: 1.5em;*/
+/*	padding-left: 1.5em;*/
+/*	padding-top: 2em;*/
+/*	margin-left: 0;*/
+/*	margin-right: 0;*/
+/*	font-style: italic;*/
+/*	display: flex;*/
+/*	float: left;*/
+/*	background-color: hsl(0, 0%, 80%);*/
+/*	position: relative;*/
+/*	!* border-left: solid 5px hsl(0, 0%, 80%); *!*/
+/*}*/
+
+/*.ck-content fragment::after{*/
+/*	content: "ასევე იხილეთ";*/
+/*	position: absolute;*/
+/*	top: 10px;*/
+/*	left: 10px;*/
+/*	font-size: 16px;*/
+/*}*/
+
+/*.ck-content[dir="rtl"] fragment {*/
+/*	border-left: 0;*/
+/*	!* border-right: solid 5px hsl(0, 0%, 80%); *!*/
+/*}*/
+/* You can add global styles to this file, and also import other style files */
+/*@font-face {*/
+/*	font-family: "helvetica-bold";*/
+/*	src: url("/assets/fonts/helvetica-bold.eot");*/
+/*	!* IE9 Compat Modes *!*/
+/*	src: url("/assets/fonts/helvetica-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/helvetica-bold.woff2") format("woff2"), url("/assets/fonts/helvetica-bold.woff") format("woff"), url("/assets/fonts/helvetica-bold.ttf") format("truetype"), url("/assets/fonts/helvetica-bold.svg") format("svg");*/
+/*	!* Legacy iOS *!*/
+/*}*/
+/*@font-face {*/
+/*	font-family: "helvetica-roman";*/
+/*	src: url("/assets/fonts/helvetica-roman.eot");*/
+/*	!* IE9 Compat Modes *!*/
+/*	src: url("/assets/fonts/helvetica-roman.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/helvetica-roman.woff2") format("woff2"), url("/assets/fonts/helvetica-roman.woff") format("woff"), url("/assets/fonts/helvetica-roman.ttf") format("truetype"), url("/assets/fonts/helvetica-roman.svg") format("svg");*/
+/*	!* Legacy iOS *!*/
+/*}*/
+body {
+	box-sizing: border-box !important;
+}
+.container {
+	width: 1200px;
+	margin: auto;
+}
+.ck-editor {
+	white-space: unset !important;
+}
+.ck-editor h1 {
+	font-family: "helvetica-bold";
+	font-size: 28px;
+	font-weight: 75;
+	line-height: 34px;
+	padding-left: 10% !important;
+}
+.ck-editor h2 {
+	font-family: "helvetica-bold";
+	font-size: 20px;
+	margin-left: 10% !important;
+}
+.ck-editor h3 {
+	color: black;
+	font-family: "helvetica-bold";
+	font-size: 20px;
+	font-weight: 85;
+	padding-left: 16px !important;
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+	border-left: 2px solid transparent !important;
+	cursor: pointer;
+}
+.ck-editor h3:active, .ck-editor h3:hover {
+	border-left: 2px solid #ff0000 !important;
+}
+.ck-editor blockquote {
+	font-family: "helvetica-bold";
+	font-size: 20px;
+	font-weight: 85;
+	line-height: 21px;
+	text-transform: uppercase;
+	color: #e70c3a;
+	border-top: 1px solid red;
+	border-bottom: 1px solid red;
+	margin-left: 10% !important;
+	padding-top: 7px !important;
+	padding-bottom: 26px !important;
+}
+fragment {
+	font-family: "helvetica-bold";
+	font-size: 15px;
+	font-weight: 75;
+	line-height: 23px;
+	background: #f8f8f8;
+	border: 1px solid #d9d9d9;
+	width: 220px;
+	height: auto;
+	padding: 15px 20px !important;
+	margin-right: 42px !important;
 	float: left;
-	background-color: hsl(0, 0%, 80%);
 	position: relative;
-	/* border-left: solid 5px hsl(0, 0%, 80%); */
 }
-
-.ck-content fragment::after{
-	content: "ასევე იხილეთ";
-	position: absolute;
-	top: 10px;
-	left: 10px;
+fragment + p::after {
+	content: " ";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+fragment::before {
+	font-family: "helvetica-bold";
 	font-size: 16px;
+	color: #939393;
+	content: "ასევე იხილეთ";
+	font-weight: 75;
+	display: block !important;
+	margin-bottom: 19px;
 }
-
-.ck-content[dir="rtl"] fragment {
-	border-left: 0;
-	/* border-right: solid 5px hsl(0, 0%, 80%); */
+fragment::after {
+	content: " ";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+fragment .property {
+	width: 25px;
+	height: 20px;
+	position: absolute;
+	top: 17px;
+	right: 80px;
+}
+fragment a {
+	font-family: "helvetica-bold";
+	text-decoration: none;
+	font-weight: 75;
+	line-height: 21px;
+	font-size: 15px;
+	color: #d6062e;
+	display: inline-block;
+	padding-left: 6px;
+	padding-bottom: 30px;
+}
+p {
+	font-family: "helvetica-roman";
+	font-size: 14px !important;
+	line-height: 27px;
+	font-weight: 55;
+	color: #000000;
 }
