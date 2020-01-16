@@ -86,6 +86,14 @@
 .ck-editor h3:active, .ck-editor h3:hover {
   border-left: 2px solid #ff0000 !important;
 }
+
+.ck-editor blockquote {
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+  padding-top: 7px !important;
+  padding-bottom: 26px !important;
+}
+
 .ck-editor blockquote * {
   font-family: "helvetica-bold";
   font-size: 20px;
@@ -93,11 +101,7 @@
   line-height: 21px;
   text-transform: uppercase;
   color: #e70c3a;
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
   /* margin-left: 10% !important; */
-  padding-top: 7px !important;
-  padding-bottom: 26px !important;
 }
 
 fragment {
