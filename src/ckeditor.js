@@ -79,11 +79,29 @@ ClassicEditor.defaultConfig = {
     },
     image: {
         toolbar: [
-            'imageStyle:full',
-            'imageStyle:side',
+            'imageTextAlternative',
             '|',
-            'imageTextAlternative'
-        ]
+            'imageStyle:alignLeft',
+            'imageStyle:full',
+            'imageStyle:alignRight'
+        ],
+        // styles: [
+        //     // This option is equal to a situation where no style is applied.
+        //     'full',
+        //
+        //     // This represents an image aligned to the left.
+        //     'alignLeft',
+        //
+        //     // This represents an image aligned to the right.
+        //     'alignRight'
+        // ]
+    },
+    blockQuote: {
+        toolbar: [
+            'imageStyle:alignLeft',
+            'imageStyle:full',
+            'imageStyle:alignRight'
+        ],
     },
     table: {
         contentToolbar: [
