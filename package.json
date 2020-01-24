@@ -23,6 +23,7 @@
     "@ckeditor/ckeditor5-heading": "^16.0.0",
     "@ckeditor/ckeditor5-image": "^16.0.0",
     "@ckeditor/ckeditor5-indent": "^16.0.0",
+    "@ckeditor/ckeditor5-inspector": "^1.5.0",
     "@ckeditor/ckeditor5-link": "^16.0.0",
     "@ckeditor/ckeditor5-list": "^16.0.0",
     "@ckeditor/ckeditor5-media-embed": "^16.0.0",
@@ -39,5 +40,10 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
-  "gitHead": "58b54420f5318c0d29be479b41f619ca15ff570b"
+  "gitHead": "58b54420f5318c0d29be479b41f619ca15ff570b",
+  "dependencies": {
+    "@ckeditor/ckeditor5-widget": "^16.0.0",
+    "ckeditor": "^4.12.1",
+    "sweetalert2": "^9.7.0"
+  }
 }
