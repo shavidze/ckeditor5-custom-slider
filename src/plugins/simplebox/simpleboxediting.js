@@ -25,7 +25,7 @@ export default class SimpleBoxEditing extends Plugin {
   _defineSchema() {
     // ADDED
     const schema = this.editor.model.schema;
-
+    //const model = this.editor.model;
     schema.register("sliderContainer", {
       // Behaves like a self-contained object (e.g. an image).
       isObject: true,
@@ -61,14 +61,6 @@ export default class SimpleBoxEditing extends Plugin {
     // ADDED
     const conversion = this.editor.conversion;
 
-    // conversion.for("upcast").attributeToAttribute({
-    //   view: {
-    //     name: "img",
-    //     key: "src"
-    //   },
-    //   model: "src"
-    // });
-
     conversion.elementToElement({
       model: "sliderContainer",
       view: {
@@ -89,29 +81,20 @@ export default class SimpleBoxEditing extends Plugin {
       model: "sliderItemImage",
       view: {
         name: "img",
-        classes: "",
-        attributes: {
-          src: true
-        }
+        classes: ""
       }
     });
-    // conversion.for("dataDowncast").elementToElement({
-    //   model: "sliderItemImage",
-    //   view: {
-    //     name: "img",
-    //     classes: "",
-    //     attributes: {
-    //       src:
-    //         "https://i.pinimg.com/originals/b4/e8/bd/b4e8bd7a4c31ea24748e7a587a110fa1.png"
-    //     }
-    //   }
-    // });
+
+    // Then the conversion might be a two way attribute-to-attribute:
+    conversion.attributeToAttribute({
+      model: "src",
+      view: "src"
+    });
+
     conversion.for("editingDowncast").elementToElement({
       model: "sliderItemImage",
       view: (modelElement, viewWriter) => {
-        console.log("model element", modelElement._attrs.get("src"));
-        console.log("viewwriter", viewWriter);
-        const img = viewWriter.createContainerElement("img", {
+        const img = viewWriter.createAttributeElement("img", {
           attributes: {
             src: modelElement._attrs.get("src")
           }
