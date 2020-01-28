@@ -5,6 +5,7 @@
   "scripts": {
     "new-version": "lerna version --conventional-commits --force-publish --no-changelog --yes",
     "build": "webpack --mode production",
+    "watch": "webpack --watch --progress",
     "add-package-json": "node ./add-package-json.js",
     "publish": "lerna publish from-git --yes --registry=https://npm.adjara.me --contents=build"
   },
