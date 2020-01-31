@@ -21,7 +21,6 @@ import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph";
 import PasteFromOffice from "@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice";
 import Table from "@ckeditor/ckeditor5-table/src/table";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
-import Fragment from "./plugins/fragment/fragment";
 import SimpleBox from "./plugins/simplebox/simplebox"; // ADDED
 import CKEditorInspector from "@ckeditor/ckeditor5-inspector"; // ADDED
 
@@ -52,7 +51,6 @@ ClassicEditor.builtinPlugins = [
   PasteFromOffice,
   Table,
   TableToolbar,
-  Fragment,
   SimpleBox
 ];
 
@@ -73,7 +71,6 @@ ClassicEditor.defaultConfig = {
       "|",
       "imageUpload",
       "blockQuote",
-      "fragment",
       "insertTable",
       "mediaEmbed",
       "undo",

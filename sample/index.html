@@ -1,130 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
     <title>CKEditor 5 – classic editor build – development sample</title>
     <style>
-      * {
-        box-sizing: border-box;
-      }
+        * {
+            box-sizing: border-box;
+        }
 
-      .slider {
-        position: relative;
-      }
+        .slider {
+            position: relative;
+        }
 
-      .carousel-indicators {
-        position: absolute;
-        right: 0;
-        bottom: 10px;
-        left: 0;
-        z-index: 15;
-        justify-content: center;
-        padding-left: 0;
-        margin-right: 15%;
-        margin-left: 15%;
-        list-style: none;
-      }
-      .slider-inner {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
+        .carousel-indicators {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            left: 0;
+            z-index: 15;
+            justify-content: center;
+            padding-left: 0;
+            margin-right: 15%;
+            margin-left: 15%;
+            list-style: none;
+        }
 
-      .slider-item {
-        position: relative;
-        display: none;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 100%;
-        transition: -webkit-transform 0.6s ease;
-        transition: transform 0.6s ease;
-        transition: transform 0.6s ease, -webkit-transform 0.6s ease;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-perspective: 1000px;
-        perspective: 1000px;
-      }
+        .slider-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
 
-      .slider-item.active {
-        display: block;
-      }
+        .slider-item {
+            position: relative;
+            display: none;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 100%;
+            transition: -webkit-transform 0.6s ease;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-perspective: 1000px;
+            perspective: 1000px;
+        }
 
-      .d-block {
-        display: block;
-      }
-      .w-100 {
-        width: 100% !important;
-      }
+        .slider-item.active {
+            display: block;
+        }
 
-      .carousel-control {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 15%;
-        color: #fff;
-        text-align: center;
-        opacity: 0.5;
-        background-color: red;
-      }
+        .d-block {
+            display: block;
+        }
 
-      .next {
-        right: 0;
-        background-color: green;
-      }
+        .w-100 {
+            width: 100% !important;
+        }
 
-      .prev {
-        left: 0;
-      }
+        .carousel-control {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 15%;
+            color: #fff;
+            text-align: center;
+            opacity: 0.5;
+            background-color: red;
+        }
 
-      .my-container {
-        width: 500px;
-      }
+        .next {
+            right: 0;
+            background-color: green;
+        }
 
-      body {
-        max-width: 800px;
-        margin: 20px auto;
-      }
-      .simple-box {
-        padding: 10px;
-        margin: 1em 0;
+        .prev {
+            left: 0;
+        }
 
-        background: rgba(0, 0, 0, 0.1);
-        border: solid 1px hsl(0, 0%, 77%);
-        border-radius: 2px;
-      }
+        .my-container {
+            width: 500px;
+        }
 
-      .simple-box-title,
-      .simple-box-description {
-        padding: 10px;
-        margin: 0;
+        body {
+            max-width: 800px;
+            margin: 20px auto;
+        }
 
-        background: #fff;
-        border: solid 1px hsl(0, 0%, 77%);
-      }
+        .simple-box {
+            padding: 10px;
+            margin: 1em 0;
 
-      .simple-box-title {
-        margin-bottom: 10px;
-      }
+            background: rgba(0, 0, 0, 0.1);
+            border: solid 1px hsl(0, 0%, 77%);
+            border-radius: 2px;
+        }
+
+        .simple-box-title,
+        .simple-box-description {
+            padding: 10px;
+            margin: 0;
+
+            background: #fff;
+            border: solid 1px hsl(0, 0%, 77%);
+        }
+
+        .simple-box-title {
+            margin-bottom: 10px;
+        }
     </style>
-  </head>
-  <body>
-    <div id="editor"></div>
+</head>
+<body>
+<div id="editor"></div>
 
-    <script src="../build/ckeditor.js"></script>
-    <script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
-    <script>
-      ClassicEditor.create(document.querySelector("#editor"))
+<script src="../build/ckeditor.js"></script>
+<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
+<script>
+    ClassicEditor.create(document.querySelector("#editor"))
         .then(editor => {
-          window.editor = editor;
-          CKEditorInspector.attach(editor);
+            window.editor = editor;
+            CKEditorInspector.attach(editor);
         })
         .catch(error => {
-          console.error("There was a problem initializing the editor.", error);
+            console.error("There was a problem initializing the editor.", error);
         });
-    </script>
-  </body>
+</script>
+</body>
 </html>
