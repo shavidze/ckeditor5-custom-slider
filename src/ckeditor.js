@@ -40,13 +40,13 @@ ClassicEditor.builtinPlugins = [
   Heading,
   Image,
   ImageCaption,
+  MediaEmbed,
   ImageStyle,
   ImageToolbar,
   ImageUpload,
   Indent,
   Link,
   List,
-  MediaEmbed,
   Paragraph,
   PasteFromOffice,
   Table,
@@ -76,6 +76,25 @@ ClassicEditor.defaultConfig = {
       "undo",
       "redo",
       "simplebox"
+    ]
+  },
+  MediaEmbed: {
+    providers: [
+      {
+        url: /^adjarasport\.com/,
+        html: match => {
+          const id = match[1];
+          console.log("id = ", id);
+          return (
+            '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' +
+            `<iframe src="https://cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fadjarasport.com%2Ffootball%2Fvideos%2Fvideo-fekhburtelma-golis-gatanis-sanatsvlod-dashavebuli-tanagundeli-miatova-442310%3Ffbclid%3DIwAR1XXBytGP9VRnS5GTsp7NhXeKo4frHEra_Pbbv9dHvuRKmhVtbq9tdAfGg&key=140b2e55b5ca9936d2328adda96bc362&app=1" ` +
+            'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
+            'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>' +
+            "</iframe>" +
+            "</div>"
+          );
+        }
+      }
     ]
   },
   image: {
