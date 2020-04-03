@@ -1,6 +1,6 @@
 {
   "name": "@gamma/ckeditor5-custom-build",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "scripts": {
     "new-version": "lerna version --conventional-commits --force-publish --no-changelog --yes",
