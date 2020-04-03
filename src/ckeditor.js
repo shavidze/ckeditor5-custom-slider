@@ -51,7 +51,7 @@ ClassicEditor.builtinPlugins = [
   PasteFromOffice,
   Table,
   TableToolbar,
-  SimpleBox
+  SimpleBox,
 ];
 
 // Editor configuration.
@@ -75,27 +75,29 @@ ClassicEditor.defaultConfig = {
       "mediaEmbed",
       "undo",
       "redo",
-      "simplebox"
-    ]
+      "simplebox",
+    ],
   },
-  MediaEmbed: {
+  mediaEmbed: {
     providers: [
       {
+        name: "adjarasport",
         url: /^adjarasport\.com/,
-        html: match => {
-          const id = match[1];
-          console.log("id = ", id);
+        html: (match) => {
+          const embedUrl = `https://${match["input"]}`;
+          console.log("embed - ", embedUrl);
+          console.log("lashaa ak sheicvala");
           return (
             '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' +
-            `<iframe src="https://cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fadjarasport.com%2Ffootball%2Fvideos%2Fvideo-fekhburtelma-golis-gatanis-sanatsvlod-dashavebuli-tanagundeli-miatova-442310%3Ffbclid%3DIwAR1XXBytGP9VRnS5GTsp7NhXeKo4frHEra_Pbbv9dHvuRKmhVtbq9tdAfGg&key=140b2e55b5ca9936d2328adda96bc362&app=1" ` +
+            `<iframe src="${embedUrl}" ` +
             'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
-            'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>' +
+            'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
             "</iframe>" +
             "</div>"
           );
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   image: {
     toolbar: [
@@ -103,8 +105,8 @@ ClassicEditor.defaultConfig = {
       "|",
       "imageStyle:alignLeft",
       "imageStyle:full",
-      "imageStyle:alignRight"
-    ]
+      "imageStyle:alignRight",
+    ],
     // styles: [
     //     // This option is equal to a situation where no style is applied.
     //     'full',
@@ -120,12 +122,12 @@ ClassicEditor.defaultConfig = {
     toolbar: [
       "imageStyle:alignLeft",
       "imageStyle:full",
-      "imageStyle:alignRight"
-    ]
+      "imageStyle:alignRight",
+    ],
   },
   table: {
-    contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"]
+    contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
   },
   // This value must be kept in sync with the language defined in webpack.config.js.
-  language: "en"
+  language: "en",
 };
