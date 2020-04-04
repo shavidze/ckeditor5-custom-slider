@@ -98,6 +98,7 @@ ClassicEditor.defaultConfig = {
         },
       },
     ],
+    previewsInData: true,
   },
   image: {
     toolbar: [
