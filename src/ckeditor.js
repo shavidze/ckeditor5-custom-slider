@@ -89,7 +89,7 @@ ClassicEditor.defaultConfig = {
           console.log("lashaa ak sheicvala");
           return (
             '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' +
-            `<iframe src="${embedUrl}" ` +
+            `<iframe src="${embedUrl}&autoplay=false" ` +
             'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
             'frameborder="0" allowfullscreen scrolling="no"> ' +
             "</iframe>" +
@@ -132,3 +132,5 @@ ClassicEditor.defaultConfig = {
   // This value must be kept in sync with the language defined in webpack.config.js.
   language: "en",
 };
+
+//'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" '

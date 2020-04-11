@@ -71,13 +71,32 @@
         background-color: red;
       }
 
+      .prev br,
+      .next br {
+        display: none;
+      }
+      .prev,
       .next {
-        right: 0;
-        background-color: green;
+        cursor: pointer;
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 8px;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
       }
 
       .prev {
-        left: 0;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%) rotate(135deg);
       }
 
       .my-container {

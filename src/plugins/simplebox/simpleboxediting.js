@@ -28,7 +28,7 @@ export default class SimpleBoxEditing extends Plugin {
       isObject: true,
 
       // Allow in places where other blocks are allowed (e.g. directly in the root).
-      allowWhere: "$block"
+      allowWhere: "$block",
     });
 
     schema.register("sliderItem", {
@@ -38,7 +38,7 @@ export default class SimpleBoxEditing extends Plugin {
       allowIn: "sliderContainer",
       allowAttributes: ["class"],
       // Allow content which is allowed in blocks (i.e. text with attributes).
-      allowContentOf: "$root"
+      allowContentOf: "$root",
     });
 
     schema.register("sliderItemImage", {
@@ -50,7 +50,23 @@ export default class SimpleBoxEditing extends Plugin {
 
       allowAttributes: ["alt", "src"],
       // Allow content which is allowed in the root (e.g. paragraphs).
-      allowContentOf: "$root"
+      allowContentOf: "$root",
+    });
+
+    schema.register("sliderArrowRight", {
+      isLimit: true,
+
+      allowIn: "sliderItem",
+
+      allowAttributes: ["onclick", "class"],
+    });
+
+    schema.register("sliderArrowLeft", {
+      isLimit: true,
+
+      allowIn: "sliderItem",
+
+      allowAttributes: ["onclick", "class"],
     });
   }
 
@@ -62,42 +78,62 @@ export default class SimpleBoxEditing extends Plugin {
       model: "sliderContainer",
       view: {
         name: "div",
-        classes: "slider-inner"
-      }
+        classes: "slider-inner",
+      },
     });
 
     conversion.elementToElement({
       model: "sliderItem",
       view: {
         name: "div",
-        classes: "slider-item"
-      }
+        classes: "slider-item",
+      },
     });
 
     conversion.elementToElement({
       model: "sliderItemImage",
       view: {
-        name: "img"
-      }
+        name: "img",
+      },
     });
 
+    conversion.elementToElement({
+      model: "sliderArrowLeft",
+      view: {
+        name: "a",
+      },
+    });
+
+    conversion.elementToElement({
+      model: "sliderArrowRight",
+      view: {
+        name: "a",
+      },
+    });
     // Then the conversion might be a two way attribute-to-attribute:
     conversion.attributeToAttribute({
       model: "src",
-      view: { key: "src", name: "img" }
+      view: { key: "src", name: "img" },
     });
 
     conversion.attributeToAttribute({
+      model: "onclick",
+      view: {
+        name: "a",
+        key: "onclick",
+      },
+    });
+    conversion.attributeToAttribute({
       model: "alt",
-      view: "alt"
+      view: "alt",
     });
 
     conversion.attributeToAttribute({
       model: "class",
       view: {
         name: "div",
-        key: "class"
-      }
+        key: "class",
+      },
     });
 
     conversion.for("editingDowncast").elementToElement({
@@ -105,11 +141,18 @@ export default class SimpleBoxEditing extends Plugin {
       view: (modelElement, viewWriter) => {
         const img = viewWriter.createAttributeElement("img", {
           attributes: {
-            src: modelElement._attrs.get("src")
-          }
+            src: modelElement._attrs.get("src"),
+          },
         });
         return toWidget(img, viewWriter);
-      }
+      },
+    });
+
+    conversion.for("editingDowncast").elementToElement({
+      model: "sliderArrowLeft",
+      view: (modelElement, viewWriter) => {
+        console.log("model", modelElement);
+      },
     });
   }
 }

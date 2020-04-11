@@ -9,7 +9,7 @@ export default class SimpleBoxUI extends Plugin {
 
     // The "simpleBox" button must be registered among the UI components of the editor
     // to be displayed in the toolbar.
-    editor.ui.componentFactory.add("SimpleBox", locale => {
+    editor.ui.componentFactory.add("SimpleBox", (locale) => {
       // The state of the button will be bound to the widget command.
       const command = editor.commands.get("SimpleBox");
 
@@ -21,7 +21,7 @@ export default class SimpleBoxUI extends Plugin {
         // translated and change when the language of the editor changes.
         label: t("Simple Box"),
         withText: true,
-        tooltip: true
+        tooltip: true,
       });
 
       // Bind the state of the button to the command.
