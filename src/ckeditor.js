@@ -79,14 +79,30 @@ ClassicEditor.defaultConfig = {
     ],
   },
   mediaEmbed: {
-    providers: [
+    extraProviders: [
       {
         name: "adjarasport",
         url: /^adjarasport\.com/,
         html: (match) => {
           const embedUrl = `https://${match["input"]}`;
-          console.log("embed - ", embedUrl);
-          console.log("lashaa ak sheicvala");
+
+          return (
+            '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' +
+            `<iframe src="${embedUrl}&autoplay=false" ` +
+            'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
+            'frameborder="0" allowfullscreen scrolling="no"> ' +
+            "</iframe>" +
+            "</div>"
+          );
+        },
+      },
+      {
+        name: "sporcle",
+        url: /^sporcle\.com/,
+        html: (match) => {
+          console.log("match =", match);
+          const embedUrl = `https://${match["input"]}`;
+
           return (
             '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' +
             `<iframe src="${embedUrl}&autoplay=false" ` +
@@ -98,7 +114,6 @@ ClassicEditor.defaultConfig = {
         },
       },
     ],
-    previewsInData: true,
   },
   image: {
     toolbar: [
